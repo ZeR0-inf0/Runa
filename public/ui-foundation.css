@@ -1,0 +1,540 @@
+/*
+ * Runa UI foundation
+ * Layered over style.css so existing markup, handlers and customization remain intact.
+ * This file changes presentation only.
+ */
+
+:root {
+  color-scheme: dark;
+  --bg-deep-black: #101113;
+  --bg-sidebar: #151619;
+  --bg-card-dark: #1b1d20;
+  --bg-card-inner: #22252a;
+  --bg-hover: #292c31;
+  --border-subtle: rgba(235, 239, 244, .09);
+  --border-focus: #aeb7c2;
+  --apple-blue: #aeb7c2;
+  --apple-green: #9bb9a4;
+  --apple-purple: #a4a0ad;
+  --apple-red: #c78f91;
+  --apple-orange: #c4ad91;
+  --apple-cyan: #a7b8c4;
+  --apple-gold: #c2b99a;
+  --text-white: #f0f1f2;
+  --text-gray: #a0a4aa;
+  --text-dim: #747980;
+  --font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --runa-bg: #101113;
+  --runa-panel: #151619;
+  --runa-panel-raised: #1b1d20;
+  --runa-panel-hover: #24272b;
+  --runa-line: rgba(235, 239, 244, .09);
+  --runa-line-strong: rgba(235, 239, 244, .15);
+  --runa-text: #f0f1f2;
+  --runa-muted: #a0a4aa;
+  --runa-dim: #747980;
+  --runa-accent: #c2c8d0;
+  --runa-accent-strong: #e1e5e9;
+  --runa-accent-soft: rgba(194, 200, 208, .10);
+  --runa-radius-sm: 9px;
+  --runa-radius-md: 13px;
+  --runa-radius-lg: 18px;
+  --runa-shadow: 0 24px 70px rgba(0, 0, 0, .42);
+
+  --glass-1: rgba(28, 30, 34, .76);
+  --glass-2: rgba(22, 24, 27, .86);
+  --glass-3: rgba(16, 17, 19, .94);
+  --glass-border: var(--runa-line);
+  --glass-border-soft: rgba(235, 239, 244, .055);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, .035);
+  --glass-shadow: var(--runa-shadow);
+  --accent: var(--runa-accent);
+  --accent-2: #d5d9de;
+  --accent-soft: var(--runa-accent-soft);
+}
+
+body.theme-runa-dark {
+  background: var(--runa-bg);
+  color: var(--runa-text);
+}
+
+body.theme-runa-dark .app-topbar {
+  background: var(--runa-panel);
+  border-bottom: 1px solid var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .chats-sidebar {
+  background: var(--runa-panel);
+  border-right: 1px solid var(--runa-line);
+}
+
+body.theme-runa-dark .chat-main-view {
+  background-color: #111316;
+}
+
+body.theme-runa-dark .chat-top-header,
+body.theme-runa-dark .chat-input-bar {
+  background: rgba(19, 21, 24, .94);
+  border-color: var(--runa-line);
+  box-shadow: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+body.theme-runa-dark .search-container input,
+body.theme-runa-dark .chat-input-bar textarea,
+body.theme-runa-dark .set-field input,
+body.theme-runa-dark .modal-search-input,
+body.theme-runa-dark .create-field input,
+body.theme-runa-dark .create-field textarea,
+body.theme-runa-dark .gw-field input,
+body.theme-runa-dark .gw-field select {
+  color: var(--runa-text);
+  background: #1d2024;
+  border: 1px solid var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .search-container input:focus,
+body.theme-runa-dark .chat-input-bar textarea:focus,
+body.theme-runa-dark .set-field input:focus,
+body.theme-runa-dark .modal-search-input:focus,
+body.theme-runa-dark .create-field input:focus,
+body.theme-runa-dark .create-field textarea:focus {
+  border-color: rgba(194, 200, 208, .52);
+  box-shadow: 0 0 0 3px rgba(194, 200, 208, .09);
+}
+
+body.theme-runa-dark .chat-row-item {
+  border: 1px solid transparent;
+  border-radius: var(--runa-radius-md);
+  transition: background .16s ease, border-color .16s ease;
+}
+
+body.theme-runa-dark .chat-row-item:hover {
+  background: rgba(255, 255, 255, .035);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .chat-row-item.active {
+  background: rgba(194, 200, 208, .085);
+  border-color: rgba(194, 200, 208, .11);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .chat-row-title,
+body.theme-runa-dark .chat-top-details h3,
+body.theme-runa-dark .chats-heading {
+  color: var(--runa-text);
+  letter-spacing: -.018em;
+}
+
+body.theme-runa-dark .chat-row-preview {
+  background: #34383e;
+  color: #e7e9ec;
+}
+
+body.theme-runa-dark .chat-top-action,
+body.theme-runa-dark .filter-icon,
+body.theme-runa-dark .input-action-btn {
+  color: #b6bbc2;
+  background: rgba(255, 255, 255, .035);
+  border: 1px solid var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .chat-top-action:hover,
+body.theme-runa-dark .filter-icon:hover,
+body.theme-runa-dark .input-action-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, .075);
+}
+
+body.theme-runa-dark .send-message-btn,
+body.theme-runa-dark .act-btn.primary.auth-submit,
+body.theme-runa-dark .mac-btn.primary-purple,
+body.theme-runa-dark .gw-join-btn {
+  color: #17191c;
+  background: #d5d9de;
+  border: 1px solid #e2e5e9;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+body.theme-runa-dark .send-message-btn:hover,
+body.theme-runa-dark .act-btn.primary.auth-submit:hover,
+body.theme-runa-dark .mac-btn.primary-purple:hover,
+body.theme-runa-dark .gw-join-btn:hover {
+  filter: brightness(.94);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .bubble.in {
+  color: #e8eaed;
+  background: #25282d;
+  border: 1px solid rgba(255, 255, 255, .045);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .bubble.out {
+  color: #17191c;
+  background: #c9ced5;
+  border: 1px solid rgba(255, 255, 255, .18);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .runa-drawer,
+body.theme-runa-dark .drawer-user-card,
+body.theme-runa-dark .settings-sidebar {
+  background: var(--runa-panel);
+  border-color: var(--runa-line);
+}
+
+body.theme-runa-dark .drawer-nav-item:hover,
+body.theme-runa-dark .s-item:hover {
+  background: rgba(255, 255, 255, .045);
+}
+
+body.theme-runa-dark .drawer-nav-item.active,
+body.theme-runa-dark .s-item.active {
+  color: var(--runa-text);
+  background: rgba(194, 200, 208, .09);
+}
+
+body.theme-runa-dark .modal-backdrop,
+body.theme-runa-dark .chat-info-backdrop {
+  background: rgba(0, 0, 0, .66);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.theme-runa-dark .profile-window,
+body.theme-runa-dark .edit-profile-window,
+body.theme-runa-dark .list-window,
+body.theme-runa-dark .up-window,
+body.theme-runa-dark .settings-mac-window,
+body.theme-runa-dark .customization-window,
+body.theme-runa-dark .wallet-window,
+body.theme-runa-dark .cs-window,
+body.theme-runa-dark .admin-window,
+body.theme-runa-dark .clans-window,
+body.theme-runa-dark .rubies-window,
+body.theme-runa-dark .identity-window,
+body.theme-runa-dark .gifts-window,
+body.theme-runa-dark .create-chat-window,
+body.theme-runa-dark .chat-info-sheet,
+body.theme-runa-dark .story-create-window,
+body.theme-runa-dark .gw-create-window {
+  color: var(--runa-text);
+  background: #191b1f;
+  border: 1px solid var(--runa-line-strong);
+  border-radius: var(--runa-radius-lg);
+  box-shadow: var(--runa-shadow);
+}
+
+body.theme-runa-dark .custom-sidebar,
+body.theme-runa-dark .settings-content-pane,
+body.theme-runa-dark .custom-center-settings {
+  background: #15171a;
+  border-color: var(--runa-line);
+}
+
+body.theme-runa-dark .theme-choice,
+body.theme-runa-dark .controls-card,
+body.theme-runa-dark .settings-head-card,
+body.theme-runa-dark .set-row,
+body.theme-runa-dark .profile-detail-card,
+body.theme-runa-dark .detail-row,
+body.theme-runa-dark .ci-row,
+body.theme-runa-dark .profile-social-panel {
+  background-color: rgba(255, 255, 255, .025);
+  border-color: var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-runa-dark .theme-choice.active,
+body.theme-runa-dark .style-choice-item.active {
+  border-color: rgba(194, 200, 208, .52);
+  box-shadow: inset 0 0 0 1px rgba(194, 200, 208, .16);
+}
+
+body.theme-runa-dark .act-field-group input,
+body.theme-runa-dark .form-row input,
+body.theme-runa-dark .form-row textarea {
+  color: var(--runa-text);
+  background: #202328;
+  border-color: var(--runa-line);
+}
+
+body.theme-runa-dark button,
+body.theme-runa-dark input,
+body.theme-runa-dark textarea,
+body.theme-runa-dark select {
+  accent-color: #b8c0ca;
+}
+
+body.theme-runa-dark button:focus-visible,
+body.theme-runa-dark a:focus-visible,
+body.theme-runa-dark input:focus-visible,
+body.theme-runa-dark textarea:focus-visible,
+body.theme-runa-dark select:focus-visible {
+  outline: 2px solid rgba(194, 200, 208, .72);
+  outline-offset: 2px;
+}
+
+body.theme-runa-dark ::selection {
+  color: #111316;
+  background: #cbd1d8;
+}
+
+body.theme-runa-dark .app-topbar,
+body.theme-runa-dark .chats-sidebar,
+body.theme-runa-dark .chat-top-header,
+body.theme-runa-dark .chat-input-bar,
+body.theme-runa-dark .chat-row-item,
+body.theme-runa-dark .modal-backdrop,
+body.theme-runa-dark .profile-window,
+body.theme-runa-dark .settings-mac-window {
+  -webkit-backdrop-filter: none;
+}
+
+body.theme-light {
+  color-scheme: light;
+  --bg-deep-black: #f4f5f6;
+  --bg-sidebar: #ffffff;
+  --bg-card-dark: #f0f1f3;
+  --bg-card-inner: #e9ebee;
+  --bg-hover: #e9ebee;
+  --border-subtle: rgba(25, 29, 35, .10);
+  --border-focus: #626b76;
+  --apple-blue: #68717c;
+  --apple-green: #607b68;
+  --apple-purple: #74717c;
+  --apple-red: #a65f62;
+  --apple-orange: #94775b;
+  --apple-cyan: #687e8d;
+  --apple-gold: #8c805d;
+  --text-white: #202328;
+  --text-gray: #646b74;
+  --text-dim: #89909a;
+  --runa-bg: #f4f5f6;
+  --runa-panel: #ffffff;
+  --runa-panel-raised: #ffffff;
+  --runa-panel-hover: #f0f1f3;
+  --runa-line: rgba(25, 29, 35, .09);
+  --runa-line-strong: rgba(25, 29, 35, .15);
+  --runa-text: #202328;
+  --runa-muted: #646b74;
+  --runa-dim: #89909a;
+  --runa-accent: #626b76;
+  --runa-accent-strong: #30363d;
+  --runa-accent-soft: rgba(67, 76, 87, .08);
+  --glass-1: rgba(255, 255, 255, .92);
+  --glass-2: rgba(250, 251, 252, .96);
+  --glass-3: rgba(244, 245, 246, .98);
+  --glass-border: var(--runa-line);
+  --glass-border-soft: rgba(25, 29, 35, .055);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, .9);
+  --glass-shadow: 0 18px 50px rgba(30, 36, 44, .12);
+  --accent: var(--runa-accent);
+  --accent-2: #7a838d;
+  --accent-soft: var(--runa-accent-soft);
+  background: var(--runa-bg);
+  color: var(--runa-text);
+}
+
+body.theme-light .app-topbar,
+body.theme-light .chats-sidebar,
+body.theme-light .chat-input-bar,
+body.theme-light .chat-top-header,
+body.theme-light .settings-sidebar,
+body.theme-light .runa-drawer {
+  color: var(--runa-text);
+  background: #fff;
+  border-color: var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-light .chat-main-view {
+  background-color: #f1f2f4;
+}
+
+body.theme-light .chat-row-item:hover {
+  background: #f0f1f3;
+  box-shadow: none;
+}
+
+body.theme-light .chat-row-item.active {
+  background: #e9ebee;
+  border-color: rgba(25, 29, 35, .07);
+  box-shadow: none;
+}
+
+body.theme-light .chat-row-title,
+body.theme-light .chat-top-details h3,
+body.theme-light .chats-heading,
+body.theme-light .drawer-nav-item {
+  color: var(--runa-text);
+}
+
+body.theme-light .search-container input,
+body.theme-light .chat-input-bar textarea,
+body.theme-light .set-field input,
+body.theme-light .modal-search-input,
+body.theme-light .create-field input,
+body.theme-light .create-field textarea,
+body.theme-light .gw-field input,
+body.theme-light .gw-field select,
+body.theme-light .act-field-group input,
+body.theme-light .form-row input,
+body.theme-light .form-row textarea {
+  color: var(--runa-text);
+  background: #f5f6f7;
+  border: 1px solid var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-light .chat-row-preview {
+  color: #fff;
+  background: #6b737d;
+}
+
+body.theme-light .chat-top-action,
+body.theme-light .filter-icon,
+body.theme-light .input-action-btn {
+  color: #59616b;
+  background: #f4f5f6;
+  border: 1px solid var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-light .send-message-btn,
+body.theme-light .act-btn.primary.auth-submit,
+body.theme-light .mac-btn.primary-purple,
+body.theme-light .gw-join-btn {
+  color: #fff;
+  background: #343a42;
+  border: 1px solid #343a42;
+  box-shadow: none;
+}
+
+body.theme-light .bubble.in {
+  color: #24282e;
+  background: #fff;
+  border: 1px solid rgba(25, 29, 35, .07);
+  box-shadow: none;
+}
+
+body.theme-light .bubble.out {
+  color: #202328;
+  background: #dfe2e6;
+  border: 1px solid rgba(25, 29, 35, .05);
+  box-shadow: none;
+}
+
+body.theme-light .profile-window,
+body.theme-light .edit-profile-window,
+body.theme-light .list-window,
+body.theme-light .up-window,
+body.theme-light .settings-mac-window,
+body.theme-light .customization-window,
+body.theme-light .wallet-window,
+body.theme-light .cs-window,
+body.theme-light .admin-window,
+body.theme-light .clans-window,
+body.theme-light .rubies-window,
+body.theme-light .identity-window,
+body.theme-light .gifts-window,
+body.theme-light .create-chat-window,
+body.theme-light .chat-info-sheet,
+body.theme-light .story-create-window,
+body.theme-light .gw-create-window {
+  color: var(--runa-text);
+  background: #fff;
+  border: 1px solid var(--runa-line);
+  box-shadow: 0 24px 70px rgba(30, 36, 44, .14);
+}
+
+body.theme-light .custom-sidebar,
+body.theme-light .settings-content-pane,
+body.theme-light .custom-center-settings {
+  color: var(--runa-text);
+  background: #f8f9fa;
+  border-color: var(--runa-line);
+}
+
+body.theme-light .theme-choice,
+body.theme-light .controls-card,
+body.theme-light .settings-head-card,
+body.theme-light .set-row,
+body.theme-light .profile-detail-card,
+body.theme-light .detail-row,
+body.theme-light .ci-row,
+body.theme-light .profile-social-panel {
+  color: var(--runa-text);
+  background: #f7f8f9;
+  border-color: var(--runa-line);
+  box-shadow: none;
+}
+
+body.theme-light .theme-choice.active,
+body.theme-light .style-choice-item.active {
+  border-color: #717b86;
+  box-shadow: inset 0 0 0 1px rgba(67, 76, 87, .12);
+}
+
+body.theme-light .modal-backdrop,
+body.theme-light .chat-info-backdrop {
+  background: rgba(30, 36, 44, .28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body.theme-light button:focus-visible,
+body.theme-light a:focus-visible,
+body.theme-light input:focus-visible,
+body.theme-light textarea:focus-visible,
+body.theme-light select:focus-visible {
+  outline: 2px solid rgba(67, 76, 87, .58);
+  outline-offset: 2px;
+}
+
+body.theme-light ::selection {
+  color: #fff;
+  background: #59616b;
+}
+
+body.theme-light .app-topbar,
+body.theme-light .chats-sidebar,
+body.theme-light .chat-top-header,
+body.theme-light .chat-input-bar,
+body.theme-light .modal-backdrop,
+body.theme-light .profile-window,
+body.theme-light .settings-mac-window {
+  -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 820px) {
+  body.theme-runa-dark .app-topbar,
+  body.theme-light .app-topbar {
+    min-height: 54px;
+  }
+
+  body.theme-runa-dark .chats-sidebar,
+  body.theme-light .chats-sidebar {
+    border-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.theme-runa-dark *,
+  body.theme-light * {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
