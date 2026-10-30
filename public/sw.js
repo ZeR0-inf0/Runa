@@ -14,6 +14,7 @@ const SHELL = [
   '/index.html',
   '/offline.html',
   '/style.css',
+  '/ui-foundation.css',
   '/app.js',
   '/social.js',
   '/vendor/pako.min.js',
